@@ -6,7 +6,6 @@ interface InputFieldProps extends HTMLInputProps {
     currentAbbr: string;
     currentValue: string;
     onChangeHandler: (value: string) => void;
-    isDisabled?: boolean;
 }
 
 export const InputField = memo((props: InputFieldProps) => {
@@ -14,7 +13,6 @@ export const InputField = memo((props: InputFieldProps) => {
         currentAbbr,
         currentValue,
         onChangeHandler,
-        isDisabled,
     } = props;
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => onChangeHandler(e.target.value);
@@ -26,7 +24,6 @@ export const InputField = memo((props: InputFieldProps) => {
                 type="number"
                 value={currentValue}
                 onChange={onChange}
-                disabled={isDisabled}
                 className="input"
             />
         </div>
