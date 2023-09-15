@@ -2,11 +2,8 @@ import { useState, useEffect } from 'react';
 import { InputField } from './components/InputField';
 import { convert } from './utils/convert';
 import { API_URL, CURRENCIES_CONFIG } from './utils/constants';
-import './styles/App.css';
 import { Currency } from './types/Currency';
-
-// [{ Cur_Abbreviation, Cur_Scale, Cur_OfficialRate, ... }]
-// Cur_Abbreviation = USD, RUB, EUR, ...
+import './styles/App.css';
 
 function App() {
     const [data, setData] = useState<Currency[]>([]);
@@ -38,7 +35,6 @@ function App() {
                         currentAbbr={currency.Cur_Abbreviation}
                         onChangeHandler={onChangeHandler}
                         currentValue={convert(mainCurrency, currency)}
-                        disabled={true}
                     />
                 ))
             }

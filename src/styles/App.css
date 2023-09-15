@@ -7,3 +7,17 @@
     width: 100%;
     background-color: #357EC7;
 }
+
+.input {
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    margin: 0 0 12px 18px;
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+.label {
+    color: white;
+    font-weight: 600;
+}

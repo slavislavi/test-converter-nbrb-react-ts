@@ -21,8 +21,14 @@ export const InputField = memo((props: InputFieldProps) => {
 
     return (
         <div>
-            <label>{currentAbbr}</label>
-            <input type="number" value={currentValue} onChange={onChange} disabled={isDisabled} />
+            <label className="label">{currentAbbr}</label>
+            <input
+                type="number"
+                value={currentValue}
+                onChange={onChange}
+                disabled={isDisabled}
+                className="input"
+            />
         </div>
     );
 });
