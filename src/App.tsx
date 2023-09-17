@@ -26,18 +26,15 @@ function App() {
 
     return (
         <div className="App">
+            {isLoading ? <span className="loader"></span> : <h4 className="title">converter nbrb</h4>}
+            <InputField
+                currentAbbr={BASE_CURRENCY}
+                onChangeHandler={onChangeHandler}
+                currentValue={mainCurrency}
+                disabled={isLoading}
+            />
             {
-                isLoading ? <span className="loader"></span> : (
-                    <InputField
-                        currentAbbr={BASE_CURRENCY}
-                        onChangeHandler={onChangeHandler}
-                        currentValue={mainCurrency}
-                        disabled={isLoading}
-                    />
-                )
-            }
-            {
-                data.map((currency) => (
+                data?.map((currency) => (
                     <InputField
                         key={currency.Cur_ID}
                         currentAbbr={currency.Cur_Abbreviation}
