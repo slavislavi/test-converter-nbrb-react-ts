@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { InputField } from './components/InputField';
+import { CurrencyInput } from './components/CurrencyInput';
 import { convert } from './utils/convert';
 import { API_URL, BASE_CURRENCY, CURRENCIES_CONFIG } from './utils/constants';
 import { Currency } from './types/Currency';
@@ -27,19 +27,19 @@ function App() {
     return (
         <div className="App">
             {isLoading ? <span className="loader"></span> : <h4 className="title">converter nbrb</h4>}
-            <InputField
-                currentAbbr={BASE_CURRENCY}
-                onChangeHandler={onChangeHandler}
-                currentValue={mainCurrency}
+            <CurrencyInput
+                label={BASE_CURRENCY}
+                onChange={onChangeHandler}
+                value={mainCurrency}
                 disabled={isLoading}
             />
             {
                 data?.map((currency) => (
-                    <InputField
+                    <CurrencyInput
                         key={currency.Cur_ID}
-                        currentAbbr={currency.Cur_Abbreviation}
-                        onChangeHandler={onChangeHandler}
-                        currentValue={convert(mainCurrency, currency)}
+                        label={currency.Cur_Abbreviation}
+                        onChange={onChangeHandler}
+                        value={convert(mainCurrency, currency)}
                         disabled={isLoading}
                     />
                 ))
